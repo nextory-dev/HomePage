@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "ai-orchestrator": {
+      "type": "http",
+      "url": "http://172.30.1.200:10211/mcp",
+      "headers": {
+        "Authorization": "Bearer ${AI_ORCHESTRATOR_MCP_TOKEN}"
+      }
+    }
+  }
+}

@@ -3,3 +3,4 @@ dist/
 .vite-pages/
 .DS_Store
 npm-debug.log*
+.codex/mcp.local.json

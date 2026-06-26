@@ -18,10 +18,10 @@
 - Create: `.gitignore`
 - Create: `scripts/build-pages.js`
 
-- [ ] Add Vite build scripts: `npm run dev`, `npm run prebuild`, `npm run build`, `npm run preview`.
-- [ ] Configure Vite with `base: "./"` and multi-page HTML inputs from `.vite-pages`.
-- [ ] Ignore `node_modules`, `dist`, `.vite-pages`, `.DS_Store`.
-- [ ] Commit with Korean message: `chore: Vite 빌드 기반 추가`.
+- [x] Add Vite build scripts: `npm run dev`, `npm run prebuild`, `npm run build`, `npm run preview`.
+- [x] Configure Vite with `base: "./"` and multi-page HTML inputs from `.vite-pages`.
+- [x] Ignore `node_modules`, `dist`, `.vite-pages`, `.DS_Store`.
+- [x] Commit with Korean message: `chore: Vite 빌드 기반 추가`.
 
 ### Task 2: Source Structure
 
@@ -33,10 +33,10 @@
 - Create: `src/partials/header.html`
 - Create: `src/partials/footer.html`
 
-- [ ] Preserve all page body content.
-- [ ] Replace repeated header/footer in source pages with include comments.
-- [ ] Update references from `site.css` and `site.js` to Vite entry files.
-- [ ] Commit with Korean message: `refactor: 소스 구조와 공통 영역 정리`.
+- [x] Preserve all page body content.
+- [x] Replace repeated header/footer in source pages with include comments.
+- [x] Update references from `site.css` and `site.js` to Vite entry files.
+- [x] Commit with Korean message: `refactor: 소스 구조와 공통 영역 정리`.
 
 ### Task 3: Cleanup And Verification
 
@@ -44,7 +44,7 @@
 - Modify: source pages and build script as needed.
 - Delete: unused generated images, unused PPTX, unused critique JSON, old root HTML/CSS/JS folders.
 
-- [ ] Run `npm install` if dependencies are missing.
-- [ ] Run `npm run build`.
-- [ ] Inspect `dist` file layout.
-- [ ] Commit with Korean message: `chore: GitHub Pages 빌드 검증`.
+- [x] Run `npm install` if dependencies are missing.
+- [x] Run `npm run build`.
+- [x] Inspect `dist` file layout.
+- [x] Commit with Korean message: `chore: GitHub Pages 빌드 검증`.

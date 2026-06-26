@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AnomixAI · NEXTORY</title>
+  <link rel="stylesheet" href="../index.css" /></head>
+<body>
+  <!-- @include header current="solutions" depth="1" -->
+  <main>
+    <section class="corporate-hero" data-od-id="hero">
+      <div class="container hero-split">
+        <div class="reveal">
+          <p class="eyebrow">AnomixAI</p>
+          <h1>세션과 이상 접근을 운영 가능한 신호로 정리합니다.</h1>
+          <p class="lead">배포된 AnomixAI 대시보드의 라우트와 다크 UI 톤을 참고해, 메뉴 선택에 따라 분석 화면이 전환되는 제품형 미리보기를 구성했습니다.</p>
+          <div class="hero-cta"><a class="btn btn-primary btn-arrow" href="#demo">인터랙션 보기</a><a class="btn btn-secondary" href="../contact.html">상담 문의</a></div>
+        </div>
+        <div class="hero-panel reveal">
+          <div class="console-bar"><span>AnomixAI Dashboard</span><div class="dots"><span></span><span></span><span></span></div></div>
+          <div class="metric-grid"><div class="metric"><span class="meta">Sessions</span><strong class="num">—</strong></div><div class="metric"><span class="meta">Abnormal</span><strong class="num">—</strong></div><div class="metric"><span class="meta">Intent</span><strong class="num">—</strong></div></div>
+          <div class="chart" aria-hidden="true"><svg viewBox="0 0 620 190" fill="none"><path d="M22 136 C88 128 112 80 182 92 C252 104 284 42 356 52 C438 64 474 128 598 34" stroke="currentColor" stroke-width="4"/></svg></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="demo" data-od-id="anomix-browser">
+      <div class="container stack" data-product-demo>
+        <div style="max-width:720px;"><p class="eyebrow">Live Structure</p><h2>배포 화면의 메뉴 구조를 인터랙션으로 축약.</h2><p class="lead">확인된 실제 경로: 대시보드, 세션, 비정상 접근 추적, 정책 탐지 현황, 블랙리스트, 봇 관리, 의도 분석, 대화형 분석, 설정 계열.</p></div>
+        <div class="browser-demo">
+          <div class="browser-top"><div class="traffic"><span></span><span></span><span></span></div><div class="address-bar" data-demo-address>172.30.1.200:4100/</div><span class="browser-action">AnomixAI</span></div>
+          <div class="product-app">
+            <aside class="app-sidebar">
+              <div class="app-brand">AnomixAI</div>
+              <div class="app-menu">
+                <button type="button" data-demo-menu="dashboard">대시보드</button>
+                <button type="button" data-demo-menu="sessions">세션</button>
+                <button type="button" data-demo-menu="abnormal">비정상 접근</button>
+                <button type="button" data-demo-menu="policy">정책 탐지</button>
+                <button type="button" data-demo-menu="bots">봇 관리</button>
+                <button type="button" data-demo-menu="intent">의도 분석</button>
+                <button type="button" data-demo-menu="settings">설정</button>
+              </div>
+            </aside>
+            <div class="app-main">
+              <div class="app-head"><div><h3 data-demo-title>운영 대시보드</h3><p data-demo-desc>세션, 이상 접근, 위험 신호를 한 화면에서 확인합니다.</p></div><span class="tag">Dark ops</span></div>
+              <div class="mock-screen" data-demo-panel="dashboard" data-address="172.30.1.200:4100/" data-title="운영 대시보드" data-desc="세션, 이상 접근, 위험 신호를 한 화면에서 확인합니다.">
+                <div class="mock-grid"><div class="mock-card"><span class="meta">Active Sessions</span><strong class="num">—</strong></div><div class="mock-card"><span class="meta">Risk Signals</span><strong class="num">—</strong></div><div class="mock-card"><span class="meta">Response</span><strong class="num">—</strong></div></div>
+                <div class="mock-table"><div class="mock-row"><span>위젯</span><span>신호</span><span>상태</span><span>동작</span></div><div class="mock-row"><strong>Session Summary</strong><span>접속</span><span class="status">정상</span><span>조회</span></div><div class="mock-row"><strong>Anomaly Map</strong><span>위험</span><span class="status warn">관찰</span><span>추적</span></div><div class="mock-row"><strong>Policy Trend</strong><span>정책</span><span class="status">활성</span><span>비교</span></div></div>
+              </div>
+              <div class="mock-screen" data-demo-panel="sessions" data-address="172.30.1.200:4100/sessions" data-title="세션 추적" data-desc="접속 세션을 검색, 필터링, 재생 흐름으로 분석합니다." hidden>
+                <div class="mock-grid"><div class="mock-card"><span class="meta">검색 조건</span><strong>IP · UA</strong></div><div class="mock-card"><span class="meta">타임라인</span><strong>Replay</strong></div><div class="mock-card"><span class="meta">내보내기</span><strong>CSV</strong></div></div>
+                <div class="mock-table"><div class="mock-row"><span>세션</span><span>국가</span><span>위험</span><span>상태</span></div><div class="mock-row"><strong>SID-2048</strong><span>KR</span><span class="status">낮음</span><span>정상</span></div><div class="mock-row"><strong>SID-2219</strong><span>US</span><span class="status warn">중간</span><span>검토</span></div><div class="mock-row"><strong>SID-2381</strong><span>Unknown</span><span class="status danger">높음</span><span>추적</span></div></div>
+              </div>
+              <div class="mock-screen" data-demo-panel="abnormal" data-address="172.30.1.200:4100/abnormal-access-tracking" data-title="비정상 접근 추적" data-desc="정상 기준선을 벗어난 접속을 위험도와 근거로 분류합니다." hidden>
+                <div class="mock-grid"><div class="mock-card"><span class="meta">Deviation</span><strong>패턴</strong></div><div class="mock-card"><span class="meta">Evidence</span><strong>근거</strong></div><div class="mock-card"><span class="meta">Triage</span><strong>조치</strong></div></div>
+                <div class="mock-table"><div class="mock-row"><span>이벤트</span><span>근거</span><span>위험</span><span>처리</span></div><div class="mock-row"><strong>반복 실패</strong><span>로그인</span><span class="status danger">높음</span><span>차단 검토</span></div><div class="mock-row"><strong>지리 변화</strong><span>국가</span><span class="status warn">중간</span><span>확인</span></div><div class="mock-row"><strong>봇 유사 행동</strong><span>속도</span><span class="status warn">중간</span><span>검증</span></div></div>
+              </div>
+              <div class="mock-screen" data-demo-panel="policy" data-address="172.30.1.200:4100/policy-detection-status" data-title="정책 탐지 현황" data-desc="정책별 탐지 상태와 대응 결과를 비교합니다." hidden>
+                <div class="mock-table"><div class="mock-row"><span>정책</span><span>조건</span><span>상태</span><span>대응</span></div><div class="mock-row"><strong>Rate Limit</strong><span>임계값</span><span class="status">활성</span><span>제한</span></div><div class="mock-row"><strong>Challenge</strong><span>의심</span><span class="status warn">검토</span><span>캡챠</span></div><div class="mock-row"><strong>Block</strong><span>확정</span><span class="status">활성</span><span>차단</span></div></div>
+              </div>
+              <div class="mock-screen" data-demo-panel="bots" data-address="172.30.1.200:4100/bots" data-title="봇 관리" data-desc="검증된 봇과 의심 봇을 분리해 운영 예외를 관리합니다." hidden><div class="mock-table"><div class="mock-row"><span>봇</span><span>유형</span><span>신뢰</span><span>처리</span></div><div class="mock-row"><strong>Search crawler</strong><span>Verified</span><span class="status">허용</span><span>예외</span></div><div class="mock-row"><strong>Scraper</strong><span>Unknown</span><span class="status danger">위험</span><span>차단</span></div><div class="mock-row"><strong>Monitor</strong><span>Partner</span><span class="status">허용</span><span>기록</span></div></div></div>
+              <div class="mock-screen" data-demo-panel="intent" data-address="172.30.1.200:4100/intent" data-title="의도 분석" data-desc="접속 행동의 의도를 분류해 탐지 근거를 설명합니다." hidden><div class="mock-grid"><div class="mock-card"><span class="meta">Intent</span><strong>탐색</strong></div><div class="mock-card"><span class="meta">Confidence</span><strong class="num">—</strong></div><div class="mock-card"><span class="meta">Explain</span><strong>근거</strong></div></div><div class="mock-table"><div class="mock-row"><span>행동</span><span>의도</span><span>확신</span><span>권고</span></div><div class="mock-row"><strong>반복 검색</strong><span>수집</span><span class="status warn">중간</span><span>관찰</span></div><div class="mock-row"><strong>폼 반복</strong><span>공격</span><span class="status danger">높음</span><span>차단</span></div></div></div>
+              <div class="mock-screen" data-demo-panel="settings" data-address="172.30.1.200:4100/settings/theme" data-title="설정과 운영 관리" data-desc="정책, 대응, 사용자, 감사 로그, 시스템 설정을 관리자 메뉴로 묶습니다." hidden><div class="mock-table"><div class="mock-row"><span>설정</span><span>권한</span><span>상태</span><span>관리</span></div><div class="mock-row"><strong>Detection Policies</strong><span>Admin</span><span class="status">활성</span><span>편집</span></div><div class="mock-row"><strong>Audit Log</strong><span>Admin</span><span class="status">기록</span><span>조회</span></div><div class="mock-row"><strong>System</strong><span>Admin</span><span class="status warn">점검</span><span>관리</span></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- @include footer depth="1" -->
+  <script type="module" src="../index.js"></script>
+</body>
+</html>

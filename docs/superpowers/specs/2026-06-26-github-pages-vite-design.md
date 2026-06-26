@@ -7,7 +7,7 @@ Convert the exported NEXTORY static publishing files into a GitHub Pages-ready s
 ## Design Constraints
 
 - Keep the 12 existing user-facing HTML routes as separate pages.
-- Preserve the visual direction from `DESIGN-HANDOFF.md` and `brand-spec.md`: white enterprise canvas, cool blue hero wash, strong solution grids, navy CTA/footer, restrained corporate security tone.
+- Preserve the visual direction from `docs/design/DESIGN-HANDOFF.md` and `docs/design/brand-spec.md`: white enterprise canvas, cool blue hero wash, strong solution grids, navy CTA/footer, restrained corporate security tone.
 - Use only HTML, CSS, and JavaScript for site source code.
 - Rename `css/site.css` to `src/index.css` and `js/site.js` to `src/index.js`.
 - Reuse duplicated header and footer through source partials.

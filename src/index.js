@@ -263,13 +263,6 @@ function initCorePreviewPicker() {
     if (shouldFocus) focusPreview();
   }
 
-  cards.forEach((card) => {
-    card.addEventListener("click", (event) => {
-      event.preventDefault();
-      selectSolution(card.dataset.coreTarget, true);
-    });
-  });
-
   selectSolution(cards[0]?.dataset.coreTarget, false);
 }
 

@@ -100,7 +100,7 @@ h3 { font-size: clamp(19px, 2vw, 24px); line-height: 1.25; letter-spacing: -0.01
       color-mix(in oklch, var(--surface) 92%, var(--bg))
     );
 }
-.page-content-field > .section {
+.page-content-field > .section:not(.dark-band) {
   background: transparent;
 }
 .eyebrow {

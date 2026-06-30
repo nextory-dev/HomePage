@@ -1401,6 +1401,31 @@ h2 .motion-underline {
   font-weight: 850;
 }
 
+.partner-program-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.partner-program-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-height: 218px;
+  border-color: color-mix(in oklch, var(--accent) 16%, var(--border));
+  box-shadow: 0 16px 46px color-mix(in oklch, var(--dark) 7%, transparent);
+}
+.partner-program-card h3 {
+  font-size: 24px;
+}
+.partner-program-card p {
+  margin: 0;
+  color: var(--muted);
+}
+.partner-program-card.is-wide {
+  grid-column: span 2;
+  min-height: 168px;
+}
+
 .log-row {
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr) 110px;
@@ -1997,6 +2022,12 @@ h2 .motion-underline {
   }
   .career-process {
     grid-template-columns: 1fr;
+  }
+  .partner-program-grid {
+    grid-template-columns: 1fr;
+  }
+  .partner-program-card.is-wide {
+    grid-column: auto;
   }
   .career-contact dl div {
     grid-template-columns: 1fr;

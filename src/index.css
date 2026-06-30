@@ -520,10 +520,9 @@ h2 .motion-underline {
   overflow: hidden;
   padding: clamp(76px, 9vw, 124px) 0;
   background:
-    linear-gradient(90deg, color-mix(in oklch, white 90%, transparent) 0 42%, transparent 68%),
-    radial-gradient(circle at var(--hero-bg-x) var(--hero-bg-y), color-mix(in oklch, var(--accent-2) 34%, transparent), transparent 28%),
-    radial-gradient(circle at var(--hero-spot-x) var(--hero-spot-y), color-mix(in oklch, white 58%, transparent), transparent 22%),
-    linear-gradient(180deg, color-mix(in oklch, var(--accent) 10%, white), color-mix(in oklch, var(--accent) 3%, white) 72%);
+    linear-gradient(90deg, color-mix(in oklch, white 94%, transparent) 0 38%, color-mix(in oklch, white 68%, transparent) 52%, transparent 78%),
+    linear-gradient(180deg, color-mix(in oklch, white 12%, transparent), color-mix(in oklch, var(--dark) 10%, transparent)),
+    url("./assets/hero/security-visual-bg.png") center / cover no-repeat;
   border-bottom: 1px solid var(--border);
   transition: background-position 360ms ease;
 }
@@ -532,21 +531,8 @@ h2 .motion-underline {
   display: none;
 }
 .corporate-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  height: auto;
-  background:
-    radial-gradient(ellipse 58% 40% at 72% 28%, var(--hero-aurora-a), transparent 68%),
-    radial-gradient(ellipse 48% 32% at 46% 72%, var(--hero-aurora-b), transparent 70%),
-    radial-gradient(ellipse 40% 28% at 88% 76%, var(--hero-aurora-c), transparent 72%),
-    linear-gradient(118deg, transparent 0 30%, color-mix(in oklch, var(--accent-2) 18%, transparent) 34% 37%, transparent 42% 100%);
-  background-size: 176% 158%, 164% 148%, 144% 132%, 100% 100%;
-  background-position: 12% 18%, 82% 68%, 58% 34%, 0 0;
-  opacity: 0.96;
-  pointer-events: none;
-  mix-blend-mode: normal;
-  animation: heroAuroraDrift 18s cubic-bezier(0.42, 0, 0.24, 1) infinite alternate;
+  content: none;
+  display: none;
 }
 .corporate-hero .container { position: relative; z-index: 1; }
 

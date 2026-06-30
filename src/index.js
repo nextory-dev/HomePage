@@ -301,6 +301,114 @@ function initHeroBackground() {
   });
 }
 
+function initUrlPreviewTool() {
+  const tool = document.querySelector("[data-url-preview]");
+  if (!tool) return;
+
+  const input = tool.querySelector("[data-url-input]");
+  const results = tool.querySelector("[data-url-results]");
+  const status = tool.querySelector("[data-url-status]");
+  const form = tool.querySelector(".url-preview-form");
+  const reset = tool.querySelector("[data-url-reset]");
+  const dataNode = document.querySelector("#press-preview-data");
+  if (!input || !results || !form || !dataNode) return;
+
+  let previews = [];
+  try {
+    previews = JSON.parse(dataNode.textContent || "[]");
+  } catch {
+    previews = [];
+  }
+
+  const normalizeUrl = (value) => {
+    try {
+      const url = new URL(value.trim());
+      url.hash = "";
+      return url.toString().replace(/\/$/, "");
+    } catch {
+      return "";
+    }
+  };
+
+  const previewMap = new Map(previews.map((item) => [normalizeUrl(item.url), item]));
+  const initialValue = input.value;
+
+  function platformFromHost(hostname) {
+    const host = hostname.replace(/^www\./, "");
+    if (host.includes("linkedin")) return "LinkedIn";
+    if (host === "x.com" || host.includes("twitter")) return "X";
+    if (host.includes("facebook")) return "Facebook";
+    if (host.includes("instagram")) return "Instagram";
+    if (host.includes("youtube") || host.includes("youtu.be")) return "YouTube";
+    if (host.includes("naver")) return "Naver";
+    return host;
+  }
+
+  function fallbackPreview(rawUrl) {
+    const url = new URL(rawUrl);
+    const platform = platformFromHost(url.hostname);
+    return {
+      url: rawUrl,
+      platform,
+      type: "Link",
+      title: `${platform} 링크 미리보기`,
+      description: "등록된 메타데이터가 없는 URL입니다. 실제 운영 시 제목, 설명, 썸네일 정보를 입력해 카드 품질을 높일 수 있습니다.",
+      date: "미등록"
+    };
+  }
+
+  function render() {
+    const urls = input.value
+      .split(/\n|,/)
+      .map((item) => item.trim())
+      .filter(Boolean);
+
+    results.textContent = "";
+
+    const validItems = urls
+      .map((url) => normalizeUrl(url))
+      .filter(Boolean)
+      .map((url) => previewMap.get(url) || fallbackPreview(url));
+
+    validItems.forEach((item) => {
+      const card = document.createElement("a");
+      card.className = "url-preview-card";
+      card.href = item.url;
+      card.target = "_blank";
+      card.rel = "noopener noreferrer";
+      card.innerHTML = `
+        <span class="url-preview-thumb">${item.platform.slice(0, 2).toUpperCase()}</span>
+        <span class="url-preview-body">
+          <span class="url-preview-meta"><b>${item.platform}</b><i>${item.type}</i><time>${item.date}</time></span>
+          <strong>${item.title}</strong>
+          <span>${item.description}</span>
+          <small>${item.url}</small>
+        </span>
+      `;
+      results.append(card);
+    });
+
+    if (status) {
+      const invalidCount = urls.length - validItems.length;
+      status.textContent = invalidCount > 0
+        ? `${validItems.length}개 URL을 카드로 만들었습니다. 잘못된 URL ${invalidCount}개는 제외했습니다.`
+        : `${validItems.length}개 URL을 카드로 만들었습니다.`;
+    }
+  }
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    render();
+  });
+
+  reset?.addEventListener("click", () => {
+    input.value = initialValue;
+    render();
+  });
+
+  render();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initReveal();
@@ -310,4 +418,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initCorePreviewPicker();
   initModal();
   initHeroBackground();
+  initUrlPreviewTool();
 });

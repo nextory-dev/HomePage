@@ -569,6 +569,51 @@ h2 .motion-underline {
 }
 .corporate-hero .container { position: relative; z-index: 1; }
 
+.home-hero {
+  padding: clamp(70px, 8vw, 106px) 0 clamp(74px, 8vw, 104px);
+}
+.home-hero .hero-split {
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(38px, 6vw, 86px);
+}
+.home-hero .reveal:first-child {
+  max-width: 480px;
+}
+.home-hero .eyebrow {
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+}
+.home-hero h1 {
+  max-width: 460px;
+  font-size: clamp(42px, 4.1vw, 58px);
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+.home-hero .lead {
+  max-width: 430px;
+  margin-top: 22px;
+  font-size: clamp(15px, 1.12vw, 16px);
+  line-height: 1.85;
+  color: color-mix(in oklch, var(--muted) 92%, var(--fg));
+}
+.home-hero .hero-cta {
+  gap: 16px;
+  margin-top: 30px;
+}
+.home-hero .btn {
+  min-width: 126px;
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 750;
+}
+.home-hero .btn-arrow::after {
+  margin-left: 10px;
+}
+
 @keyframes heroAuroraDrift {
   0% {
     background-position: 12% 18%, 82% 68%, 58% 34%, 0 0;
@@ -1387,6 +1432,33 @@ h2 .motion-underline {
     background: color-mix(in oklch, var(--accent) 4%, var(--surface));
   }
   .mobile-menu { display: inline-flex; }
+  .home-hero {
+    padding: 56px 0 68px;
+  }
+  .home-hero .eyebrow {
+    margin-bottom: 14px;
+    font-size: 12px;
+  }
+  .home-hero h1 {
+    font-size: clamp(34px, 11vw, 42px);
+    line-height: 1.2;
+  }
+  .home-hero .lead {
+    max-width: 34ch;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .home-hero .hero-cta {
+    gap: 12px;
+    margin-top: 26px;
+  }
+  .home-hero .btn {
+    min-width: 112px;
+    min-height: 44px;
+    padding: 10px 15px;
+    font-size: 13px;
+  }
   .hero-panel { min-height: 390px; }
   .metric-grid { grid-template-columns: 1fr; }
   .timeline-item { grid-template-columns: 1fr; }

@@ -971,8 +971,8 @@ h2 .motion-underline {
 .footer-main {
   min-height: 138px;
   display: grid;
-  grid-template-columns: 0.86fr 1.45fr 1fr;
-  gap: clamp(24px, 5vw, 72px);
+  grid-template-columns: minmax(150px, 0.58fr) minmax(420px, 1.7fr) minmax(220px, 1fr);
+  gap: clamp(16px, 3vw, 40px);
   align-items: center;
   padding-top: 38px;
   padding-bottom: 38px;
@@ -997,6 +997,11 @@ h2 .motion-underline {
   color: color-mix(in oklch, var(--surface) 82%, transparent);
   font-style: normal;
   font-size: 14px;
+}
+.footer-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
 }
 .footer-links {
   display: flex;

@@ -409,6 +409,143 @@ function initUrlPreviewTool() {
   render();
 }
 
+function isPlaceholder(value) {
+  return !value || value.includes("YOUR_");
+}
+
+function initContactForm() {
+  const form = document.querySelector("[data-contact-form]");
+  if (!form) return;
+
+  const status = form.querySelector("[data-contact-status]");
+  const submit = form.querySelector('button[type="submit"]');
+  const serviceId = form.dataset.emailjsService || "";
+  const templateId = form.dataset.emailjsTemplate || "";
+  const publicKey = form.dataset.emailjsPublicKey || "";
+
+  const setStatus = (message, tone = "default") => {
+    if (!status) return;
+    status.textContent = message;
+    status.dataset.tone = tone;
+  };
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    if (isPlaceholder(serviceId) || isPlaceholder(templateId) || isPlaceholder(publicKey)) {
+      setStatus("EmailJS 설정값을 입력한 뒤 문의를 전송할 수 있습니다.", "warn");
+      return;
+    }
+
+    if (!window.emailjs) {
+      setStatus("EmailJS SDK를 불러오지 못했습니다. 잠시 후 다시 시도해주세요.", "error");
+      return;
+    }
+
+    const formData = new FormData(form);
+    const templateParams = Object.fromEntries(formData.entries());
+    templateParams.sent_at = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
+
+    submit?.setAttribute("disabled", "");
+    setStatus("문의 내용을 전송하고 있습니다.", "default");
+
+    try {
+      window.emailjs.init({ publicKey });
+      await window.emailjs.send(serviceId, templateId, templateParams);
+      form.reset();
+      setStatus("문의가 접수되었습니다. 담당자가 확인 후 연락드리겠습니다.", "success");
+    } catch {
+      setStatus("전송 중 문제가 발생했습니다. 이메일 또는 전화로 문의해주세요.", "error");
+    } finally {
+      submit?.removeAttribute("disabled");
+    }
+  });
+}
+
+function loadExternalScript(src) {
+  const existing = document.querySelector(`script[src="${src}"]`);
+  if (existing) {
+    return new Promise((resolve, reject) => {
+      if (existing.dataset.loaded === "true") resolve();
+      existing.addEventListener("load", resolve, { once: true });
+      existing.addEventListener("error", reject, { once: true });
+    });
+  }
+
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.async = true;
+    script.addEventListener("load", () => {
+      script.dataset.loaded = "true";
+      resolve();
+    });
+    script.addEventListener("error", reject);
+    document.head.append(script);
+  });
+}
+
+function initKakaoMap() {
+  const panel = document.querySelector("[data-kakao-map]");
+  if (!panel) return;
+
+  const canvas = panel.querySelector("[data-kakao-map-canvas]");
+  const fallback = panel.querySelector("[data-kakao-map-fallback]");
+  const appKey = panel.dataset.kakaoAppKey || "";
+  const address = panel.dataset.address || "";
+  const lat = Number(panel.dataset.lat);
+  const lng = Number(panel.dataset.lng);
+
+  const showFallback = () => {
+    panel.classList.add("is-fallback");
+    if (fallback) fallback.hidden = false;
+  };
+
+  if (!canvas || isPlaceholder(appKey)) {
+    showFallback();
+    return;
+  }
+
+  const sdkUrl = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${encodeURIComponent(appKey)}&autoload=false&libraries=services`;
+
+  loadExternalScript(sdkUrl)
+    .then(() => {
+      if (!window.kakao?.maps) {
+        showFallback();
+        return;
+      }
+
+      window.kakao.maps.load(() => {
+        const fallbackPosition = new window.kakao.maps.LatLng(lat || 37.500622, lng || 127.035392);
+        const renderMap = (position) => {
+          const map = new window.kakao.maps.Map(canvas, {
+            center: position,
+            level: 3
+          });
+          new window.kakao.maps.Marker({ map, position });
+          panel.classList.remove("is-fallback");
+          if (fallback) fallback.hidden = true;
+        };
+
+        if (window.kakao.maps.services && address) {
+          const geocoder = new window.kakao.maps.services.Geocoder();
+          geocoder.addressSearch(address, (result, status) => {
+            if (status === window.kakao.maps.services.Status.OK && result[0]) {
+              renderMap(new window.kakao.maps.LatLng(Number(result[0].y), Number(result[0].x)));
+            } else {
+              renderMap(fallbackPosition);
+            }
+          });
+          return;
+        }
+
+        renderMap(fallbackPosition);
+      });
+    })
+    .catch(showFallback);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initReveal();
@@ -419,4 +556,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initModal();
   initHeroBackground();
   initUrlPreviewTool();
+  initContactForm();
+  initKakaoMap();
 });

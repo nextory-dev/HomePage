@@ -1,12 +1,119 @@
 <!doctype html>
 <html lang="ko">
-<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Contact Us · NEXTORY</title><link rel="stylesheet" href="index.css" /></head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us · NEXTORY</title>
+  <link rel="stylesheet" href="index.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+</head>
 <body>
   <!-- @include header current="contact" depth="0" -->
-  <main>
-    <section class="corporate-hero" data-od-id="hero"><div class="container hero-split"><div><p class="eyebrow">Contact Us</p><h1>관심 솔루션과 검토 맥락을 함께 남겨주세요.</h1><p class="lead">구매문의는 단순 연락처가 아니라, 어떤 솔루션 화면을 보고 들어왔는지 이어 받을 수 있는 상담 진입점입니다.</p></div><form class="card stack" data-od-id="contact-form"><div class="field"><label for="solution">관심 솔루션</label><select class="input" id="solution"><option>BotfenderAI</option><option>AnomixAI</option><option>PentraFlow</option><option>개판</option><option>VMS</option><option>기타 협력 문의</option></select></div><div class="field"><label for="name">이름 / 회사</label><input class="input" id="name" placeholder="담당자와 회사명을 입력하세요" /></div><div class="field"><label for="email">연락처</label><input class="input" id="email" placeholder="이메일 또는 전화번호" /></div><div class="field"><label for="message">문의 내용</label><textarea class="textarea" id="message" rows="5" placeholder="도입 목적, 현재 운영 환경, 검토 중인 화면을 적어주세요"></textarea></div><button class="btn btn-primary" type="button">문의 내용 확인</button></form></div></section>
-    <section class="section" data-od-id="contact-path"><div class="container grid-3"><div><p class="eyebrow">Flow</p><h2>상담 전환 경로.</h2></div><div class="card"><h3>솔루션 확인</h3><p class="lead">상세 페이지에서 화면 메뉴를 직접 확인합니다.</p></div><div class="card"><h3>문의 제출</h3><p class="lead">관심 솔루션과 상황을 남기고 기술 상담으로 이어집니다.</p></div></div></section>
+  <main class="page-content-field" data-page-bg-interaction>
+    <section class="corporate-hero contact-hero" data-od-id="hero">
+      <div class="container hero-split">
+        <div class="reveal">
+          <p class="eyebrow">Contact Us</p>
+          <h1>네스토리는 최고의 솔루션과 최선의 서비스를 제공하겠습니다.</h1>
+          <p class="lead">제품 도입, 채용, 협력 문의를 남겨주시면 담당자가 확인 후 빠르게 연락드리겠습니다.</p>
+        </div>
+        <form
+          class="contact-form reveal"
+          data-contact-form
+          data-emailjs-service="YOUR_EMAILJS_SERVICE_ID"
+          data-emailjs-template="YOUR_EMAILJS_TEMPLATE_ID"
+          data-emailjs-public-key="YOUR_EMAILJS_PUBLIC_KEY"
+        >
+          <p class="form-required">* 표시는 반드시 입력하셔야 하는 항목입니다.</p>
+          <div class="field">
+            <label for="inquiryType">문의분류 *</label>
+            <select class="input" id="inquiryType" name="inquiry_type" required>
+              <option value="제품문의">제품문의</option>
+              <option value="채용문의">채용문의</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="company">회사명 *</label>
+              <input class="input" id="company" name="company" autocomplete="organization" required />
+            </div>
+            <div class="field">
+              <label for="phone">전화번호 *</label>
+              <input class="input" id="phone" name="phone" autocomplete="tel" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">이메일 *</label>
+            <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="subject">제목 *</label>
+            <input class="input" id="subject" name="subject" required />
+          </div>
+          <div class="field">
+            <label for="message">내용 *</label>
+            <textarea class="textarea" id="message" name="message" rows="7" required></textarea>
+          </div>
+          <label class="privacy-check">
+            <input type="checkbox" name="privacy_agree" required />
+            <span>개인정보 처리방침에 동의합니다.</span>
+          </label>
+          <div class="contact-actions">
+            <button class="btn btn-primary" type="submit">문의하기</button>
+            <p class="form-status" data-contact-status aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section contact-section" data-od-id="contact-info">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <p class="eyebrow">Location</p>
+          <h2>오시는 길</h2>
+          <dl class="contact-list">
+            <div>
+              <dt>주소</dt>
+              <dd>서울시 강남구 테헤란로 123, 10층 (역삼동, 여삼빌딩)</dd>
+            </div>
+            <div>
+              <dt>전화</dt>
+              <dd><a href="tel:0269534490">02-6953-4490</a></dd>
+            </div>
+            <div>
+              <dt>FAX</dt>
+              <dd>02-6953-4491</dd>
+            </div>
+            <div>
+              <dt>이메일</dt>
+              <dd><a href="mailto:info@nextory.co.kr">info@nextory.co.kr</a></dd>
+            </div>
+            <div>
+              <dt>지하철</dt>
+              <dd>2호선 역삼역 4번출구 1분거리</dd>
+            </div>
+          </dl>
+        </div>
+        <div
+          class="kakao-map-panel reveal"
+          data-kakao-map
+          data-kakao-app-key="YOUR_KAKAO_JAVASCRIPT_KEY"
+          data-address="서울시 강남구 테헤란로 123, 10층 (역삼동, 여삼빌딩)"
+          data-lat="37.500622"
+          data-lng="127.035392"
+        >
+          <div class="map-canvas" data-kakao-map-canvas role="img" aria-label="서울시 강남구 테헤란로 123 위치 지도"></div>
+          <div class="map-fallback" data-kakao-map-fallback>
+            <strong>서울시 강남구 테헤란로 123, 10층</strong>
+            <span>Kakao 지도 JavaScript 키를 설정하면 이 영역에 지도가 표시됩니다.</span>
+            <a class="btn btn-ghost" href="https://map.kakao.com/link/search/%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%ED%85%8C%ED%97%A4%EB%9E%80%EB%A1%9C%20123" target="_blank" rel="noopener noreferrer">Kakao 지도에서 보기</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  <!-- @include footer depth="0" --><script type="module" src="index.js"></script>
+  <!-- @include footer depth="0" -->
+  <script type="module" src="index.js"></script>
 </body>
 </html>

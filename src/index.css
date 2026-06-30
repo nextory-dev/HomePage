@@ -1286,6 +1286,103 @@ h2 .motion-underline {
   opacity: 0.12;
 }
 
+.career-copy {
+  display: grid;
+  gap: 14px;
+  color: var(--muted);
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.8;
+}
+.career-copy p {
+  margin: 0;
+}
+.career-process {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  counter-reset: process;
+}
+.career-process article {
+  position: relative;
+  min-height: 210px;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 14px 42px color-mix(in oklch, var(--dark) 6%, transparent);
+}
+.career-process article::after {
+  content: "";
+  position: absolute;
+  top: 43px;
+  left: calc(100% - 6px);
+  z-index: 1;
+  width: 28px;
+  height: 1px;
+  background: color-mix(in oklch, var(--accent) 48%, var(--border));
+}
+.career-process article:last-child::after {
+  content: none;
+}
+.career-process span {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in oklch, var(--accent) 10%, var(--surface));
+  color: var(--accent);
+  font: 900 14px/1 var(--font-mono);
+}
+.career-process h3 {
+  font-size: 22px;
+}
+.career-process p,
+.benefit-card p {
+  margin: 0;
+  color: var(--muted);
+}
+.benefit-card {
+  display: grid;
+  gap: 14px;
+  min-height: 210px;
+}
+.benefit-card h3 {
+  font-size: 22px;
+}
+.career-contact {
+  display: grid;
+  gap: 24px;
+}
+.career-contact dl {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  border-top: 2px solid var(--fg);
+}
+.career-contact dl div {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.career-contact dt {
+  color: var(--accent);
+  font-weight: 900;
+}
+.career-contact dd {
+  margin: 0;
+  color: var(--muted);
+}
+.career-contact a:not(.btn) {
+  color: var(--fg);
+  font-weight: 850;
+}
+
 .log-row {
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr) 110px;
@@ -1748,6 +1845,8 @@ h2 .motion-underline {
 
 @media (max-width: 1024px) {
   .hero-split, .grid-2, .grid-3, .grid-4, .grid-5, .screen-stage, .product-app, .contact-grid { grid-template-columns: 1fr; }
+  .career-process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .career-process article::after { content: none; }
   .footer-main { grid-template-columns: 1fr; gap: 22px; }
   .footer-links { justify-content: flex-start; text-align: left; }
   .why-strip { grid-template-columns: 1fr; }
@@ -1875,6 +1974,13 @@ h2 .motion-underline {
     justify-content: center;
   }
   .contact-list div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .career-process {
+    grid-template-columns: 1fr;
+  }
+  .career-contact dl div {
     grid-template-columns: 1fr;
     gap: 6px;
   }

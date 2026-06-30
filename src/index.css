@@ -538,17 +538,8 @@ h2 .motion-underline {
   transition: background-position 360ms ease;
 }
 .corporate-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to right, color-mix(in oklch, var(--accent) 10%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklch, var(--accent) 8%, transparent) 1px, transparent 1px);
-  background-size: 72px 72px;
-  background-position: var(--hero-grid-x) var(--hero-grid-y);
-  mask-image: linear-gradient(90deg, transparent, black 45%, black 78%, transparent);
-  pointer-events: none;
-  transition: background-position 440ms ease, opacity 440ms ease;
+  content: none;
+  display: none;
 }
 .corporate-hero::after {
   content: "";
@@ -569,40 +560,40 @@ h2 .motion-underline {
 }
 .corporate-hero .container { position: relative; z-index: 1; }
 
-.home-hero {
+.corporate-hero {
   padding: clamp(70px, 8vw, 106px) 0 clamp(74px, 8vw, 104px);
 }
-.home-hero .hero-split {
+.corporate-hero .hero-split {
   grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
   gap: clamp(38px, 6vw, 86px);
 }
-.home-hero .reveal:first-child {
+.corporate-hero .hero-split > :first-child {
   max-width: 480px;
 }
-.home-hero .eyebrow {
+.corporate-hero .eyebrow {
   margin-bottom: 16px;
   font-size: 13px;
   font-weight: 750;
   letter-spacing: 0.04em;
 }
-.home-hero h1 {
+.corporate-hero h1 {
   max-width: 460px;
   font-size: clamp(42px, 4.1vw, 58px);
   line-height: 1.18;
   letter-spacing: 0;
 }
-.home-hero .lead {
+.corporate-hero .lead {
   max-width: 430px;
   margin-top: 22px;
   font-size: clamp(15px, 1.12vw, 16px);
   line-height: 1.85;
   color: color-mix(in oklch, var(--muted) 92%, var(--fg));
 }
-.home-hero .hero-cta {
+.corporate-hero .hero-cta {
   gap: 16px;
   margin-top: 30px;
 }
-.home-hero .btn {
+.corporate-hero .hero-cta .btn {
   min-width: 126px;
   min-height: 48px;
   padding: 12px 18px;
@@ -610,7 +601,7 @@ h2 .motion-underline {
   font-size: 14px;
   font-weight: 750;
 }
-.home-hero .btn-arrow::after {
+.corporate-hero .hero-cta .btn-arrow::after {
   margin-left: 10px;
 }
 
@@ -1432,28 +1423,28 @@ h2 .motion-underline {
     background: color-mix(in oklch, var(--accent) 4%, var(--surface));
   }
   .mobile-menu { display: inline-flex; }
-  .home-hero {
+  .corporate-hero {
     padding: 56px 0 68px;
   }
-  .home-hero .eyebrow {
+  .corporate-hero .eyebrow {
     margin-bottom: 14px;
     font-size: 12px;
   }
-  .home-hero h1 {
+  .corporate-hero h1 {
     font-size: clamp(34px, 11vw, 42px);
     line-height: 1.2;
   }
-  .home-hero .lead {
+  .corporate-hero .lead {
     max-width: 34ch;
     margin-top: 18px;
     font-size: 14px;
     line-height: 1.8;
   }
-  .home-hero .hero-cta {
+  .corporate-hero .hero-cta {
     gap: 12px;
     margin-top: 26px;
   }
-  .home-hero .btn {
+  .corporate-hero .hero-cta .btn {
     min-width: 112px;
     min-height: 44px;
     padding: 10px 15px;

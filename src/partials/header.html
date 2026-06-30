@@ -8,7 +8,14 @@
       <span>메뉴</span>
     </button>
     <nav class="nav-links" id="site-navigation" aria-label="주요 메뉴">
-      <a href="{{base}}company.html"{{company}}>회사소개</a>
+      <div class="nav-item">
+        <a href="{{base}}company.html"{{company}}>회사소개</a>
+        <div class="subnav" aria-label="회사소개 하위메뉴">
+          <a href="{{base}}company/overview.html">회사 개요</a>
+          <a href="{{base}}company/history.html">연혁</a>
+          <a href="{{base}}company/certifications.html">인증/특허</a>
+        </div>
+      </div>
       <div class="nav-item">
         <a href="{{base}}solutions/index.html"{{solutions}}>솔루션소개</a>
         <div class="subnav" aria-label="솔루션 하위메뉴">

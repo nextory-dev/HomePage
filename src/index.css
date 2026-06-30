@@ -1092,6 +1092,93 @@ h2 .motion-underline {
 .log-row:first-of-type { border-top-color: var(--fg); }
 .pull { justify-self: end; }
 
+.company-timeline {
+  display: grid;
+  gap: 0;
+  border-top: 2px solid var(--fg);
+}
+.company-timeline article {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+.company-timeline article > span {
+  color: var(--accent);
+  font: 800 20px/1 var(--font-mono);
+}
+.company-timeline h3 {
+  font-size: 22px;
+}
+.company-timeline p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.board-table {
+  border-top: 2px solid var(--fg);
+}
+.board-row {
+  display: grid;
+  grid-template-columns: 72px 96px minmax(0, 1fr) 124px 82px;
+  gap: 16px;
+  align-items: center;
+  min-height: 66px;
+  padding: 14px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.board-row:not(.board-head):hover,
+.board-row:not(.board-head):focus-visible {
+  background: color-mix(in oklch, var(--accent) 5%, transparent);
+  outline: none;
+}
+.board-head {
+  min-height: 52px;
+  color: var(--muted);
+  background: color-mix(in oklch, var(--accent) 4%, var(--surface));
+  font-size: 14px;
+  font-weight: 800;
+}
+.board-row strong {
+  font-size: 17px;
+}
+.board-row time,
+.board-row span {
+  color: var(--muted);
+}
+.board-row em {
+  justify-self: start;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--accent) 9%, transparent);
+  color: color-mix(in oklch, var(--accent) 84%, var(--dark));
+  font: 700 12px/1 var(--font-mono);
+  font-style: normal;
+}
+.board-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 26px;
+}
+.board-pagination a {
+  min-width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  font-weight: 800;
+}
+.board-pagination a[aria-current="page"],
+.board-pagination a:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--surface);
+}
+
 .preview-shell {
   border-radius: 24px;
   border: 1px solid var(--border);
@@ -1364,6 +1451,17 @@ h2 .motion-underline {
   .app-menu { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .mock-grid { grid-template-columns: 1fr; }
   .mock-row { grid-template-columns: 1fr; }
+  .company-timeline article {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .board-row {
+    grid-template-columns: 54px 72px minmax(0, 1fr);
+  }
+  .board-row time,
+  .board-row em {
+    display: none;
+  }
   .security-visual {
     display: grid;
     gap: 12px;

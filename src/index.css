@@ -336,16 +336,6 @@ h2 .motion-underline {
 .topnav-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.02em; }
 .brand-lockup { gap: 12px; min-width: max-content; }
-.brand-mark {
-  width: 38px;
-  height: 38px;
-  border-radius: 7px;
-  background: var(--dark);
-  display: grid;
-  place-items: center;
-  color: var(--surface);
-  font: 900 15px/1 var(--font-display);
-}
 .brand-copy { display: grid; gap: 2px; }
 .brand-copy strong {
   color: var(--dark);

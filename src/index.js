@@ -279,28 +279,6 @@ function initModal() {
   });
 }
 
-function initHeroBackground() {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  document.querySelectorAll("[data-page-bg-interaction]").forEach((field) => {
-    field.addEventListener("pointermove", (event) => {
-      const rect = field.getBoundingClientRect();
-      const x = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
-      const y = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
-      field.style.setProperty("--page-spot-x", `${(x * 100).toFixed(1)}%`);
-      field.style.setProperty("--page-spot-y", `${(y * 100).toFixed(1)}%`);
-      field.style.setProperty("--page-grid-x", `${((x - 0.5) * 20).toFixed(1)}px`);
-      field.style.setProperty("--page-grid-y", `${((y - 0.5) * 20).toFixed(1)}px`);
-    });
-
-    field.addEventListener("pointerleave", () => {
-      field.style.setProperty("--page-spot-x", "50%");
-      field.style.setProperty("--page-spot-y", "34%");
-      field.style.setProperty("--page-grid-x", "0px");
-      field.style.setProperty("--page-grid-y", "0px");
-    });
-  });
-}
-
 function initUrlPreviewTool() {
   const tool = document.querySelector("[data-url-preview]");
   if (!tool) return;
@@ -554,7 +532,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initProductDemos();
   initCorePreviewPicker();
   initModal();
-  initHeroBackground();
   initUrlPreviewTool();
   initContactForm();
   initKakaoMap();

@@ -890,7 +890,7 @@ h2 .motion-underline {
   display: block;
   fill: none;
   stroke: currentColor;
-  stroke-width: 2.05;
+  stroke-width: 2.65;
   stroke-linecap: round;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
@@ -912,7 +912,7 @@ h2 .motion-underline {
 .icon-soft .icon-svg {
   width: 46px;
   height: 46px;
-  stroke-width: 2.05;
+  stroke-width: 2.55;
 }
 .why-strip {
   display: grid;
@@ -946,7 +946,7 @@ h2 .motion-underline {
 .industry-tile .icon-svg {
   width: 48px;
   height: 48px;
-  stroke-width: 2.1;
+  stroke-width: 2.6;
 }
 .corporate-cta {
   width: min(100%, 1100px);

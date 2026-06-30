@@ -1014,6 +1014,24 @@ h2 .motion-underline {
   height: 48px;
   stroke-width: 2.6;
 }
+.icon-png {
+  width: 90px;
+  color: inherit;
+}
+.icon-png img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.core-preview-picker .icon-png {
+  width: 96px;
+}
+.icon-soft.icon-png {
+  width: 92px;
+}
+.industry-tile .icon-png {
+  width: 82px;
+}
 .corporate-cta {
   width: min(100%, 1100px);
   height: 200px;

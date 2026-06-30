@@ -966,11 +966,14 @@ h2 .motion-underline {
   box-shadow: 0 12px 34px color-mix(in oklch, var(--dark) 6%, transparent);
 }
 .corporate-cta {
-  min-height: 164px;
+  width: min(100%, 1100px);
+  height: 200px;
+  min-height: 200px;
+  margin: 0 auto;
   overflow: hidden;
   border-radius: 12px;
   background:
-    linear-gradient(90deg, color-mix(in oklch, var(--dark) 18%, transparent), color-mix(in oklch, var(--dark) 4%, transparent) 45%, color-mix(in oklch, var(--dark) 10%, transparent)),
+    linear-gradient(90deg, color-mix(in oklch, var(--dark) 10%, transparent), color-mix(in oklch, var(--dark) 3%, transparent) 52%, color-mix(in oklch, var(--dark) 8%, transparent)),
     url("./assets/cta/security-cta-banner.png") center / cover no-repeat,
     linear-gradient(135deg, var(--dark), color-mix(in oklch, var(--accent) 48%, var(--dark)));
   color: white;
@@ -1040,23 +1043,23 @@ h2 .motion-underline {
 }
 
 .corporate-cta-inner {
-  min-height: 164px;
+  height: 200px;
   display: grid;
   justify-items: center;
   align-items: center;
   align-content: center;
-  gap: 18px;
-  padding: clamp(24px, 4vw, 36px) clamp(20px, 5vw, 56px);
+  gap: 14px;
+  padding: 22px clamp(18px, 5vw, 56px) 18px;
   text-align: center;
 }
 .corporate-cta h2 {
-  max-width: 680px;
-  font-size: clamp(26px, 2.7vw, 38px);
+  max-width: 760px;
+  font-size: clamp(24px, 2.5vw, 34px);
   line-height: 1.18;
 }
 .corporate-cta .btn {
   min-width: 178px;
-  min-height: 48px;
+  min-height: 56px;
   border-color: color-mix(in oklch, var(--surface) 70%, transparent);
   border-radius: 8px;
   font-size: 15px;

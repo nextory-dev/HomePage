@@ -698,7 +698,7 @@ h2 .motion-underline {
   position: relative;
   min-height: 520px;
   border-radius: 28px;
-  background: url("./assets/hero/security-visual-bg.png") center / cover no-repeat;
+  background: transparent;
   filter: drop-shadow(0 34px 54px color-mix(in oklch, var(--accent) 16%, transparent));
   overflow: hidden;
 }
